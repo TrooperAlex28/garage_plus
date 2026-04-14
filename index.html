@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Garage ProTech</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Manrope:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --bg: #fffdf8;
+        --surface: #ffffff;
+        --ink: #1f2937;
+        --muted: #5b6472;
+        --brand: #e36414;
+        --brand-dark: #c84f06;
+        --accent: #f3a712;
+        --ring: #ffd7bf;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Manrope", sans-serif;
+        color: var(--ink);
+        background:
+          radial-gradient(circle at 8% 10%, #fff0e4 0, transparent 42%),
+          radial-gradient(circle at 92% 82%, #ffe9d4 0, transparent 36%),
+          var(--bg);
+        line-height: 1.55;
+      }
+
+      header {
+        max-width: 1000px;
+        margin: 28px auto 0;
+        background: linear-gradient(
+          135deg,
+          #111827 0%,
+          #1f2937 62%,
+          #2f3c4c 100%
+        );
+        color: #fffdf6;
+        padding: 72px 24px;
+        text-align: center;
+        border-radius: 20px;
+        box-shadow: 0 16px 40px rgba(17, 24, 39, 0.18);
+        position: relative;
+        overflow: hidden;
+        animation: slide-up 0.7s ease-out both;
+      }
+
+      header::after {
+        content: "";
+        position: absolute;
+        width: 220px;
+        height: 220px;
+        background: radial-gradient(
+          circle,
+          rgba(243, 167, 18, 0.35) 0,
+          rgba(243, 167, 18, 0) 70%
+        );
+        top: -70px;
+        right: -40px;
+        pointer-events: none;
+      }
+
+      .header-content {
+        position: relative;
+        z-index: 1;
+      }
+
+      h1 {
+        margin: 0;
+        font-family: "Sora", sans-serif;
+        font-size: clamp(2rem, 4.5vw, 3rem);
+        letter-spacing: 0.02em;
+      }
+
+      .subtitle {
+        margin: 14px auto 0;
+        max-width: 560px;
+        font-size: 1.05rem;
+        color: #e5e7eb;
+      }
+
+      .btn {
+        background: linear-gradient(
+          135deg,
+          var(--brand) 0%,
+          var(--accent) 100%
+        );
+        color: #111827;
+        padding: 12px 24px;
+        font-weight: 700;
+        text-decoration: none;
+        border-radius: 999px;
+        display: inline-block;
+        margin-top: 22px;
+        box-shadow: 0 10px 24px rgba(227, 100, 20, 0.35);
+        transition:
+          transform 0.25s ease,
+          box-shadow 0.25s ease;
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 14px 28px rgba(227, 100, 20, 0.35);
+      }
+
+      section {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 70px 20px;
+        text-align: center;
+      }
+
+      h2 {
+        margin: 0;
+        font-family: "Sora", sans-serif;
+        font-size: clamp(1.5rem, 3.2vw, 2.1rem);
+      }
+
+      .intro {
+        margin: 12px auto 0;
+        max-width: 620px;
+        color: var(--muted);
+      }
+
+      .services {
+        margin-top: 30px;
+        display: grid;
+        grid-template-columns: repeat(4, minmax(160px, 1fr));
+        gap: 18px;
+      }
+
+      .card {
+        background: var(--surface);
+        padding: 24px 16px;
+        border-radius: 16px;
+        border: 1px solid #f3e8de;
+        box-shadow: 0 8px 20px rgba(20, 20, 20, 0.06);
+        font-weight: 700;
+        opacity: 0;
+        transform: translateY(8px);
+        animation: rise-in 0.55s ease forwards;
+      }
+
+      .card:nth-child(2) {
+        animation-delay: 0.08s;
+      }
+
+      .card:nth-child(3) {
+        animation-delay: 0.16s;
+      }
+
+      .card:nth-child(4) {
+        animation-delay: 0.24s;
+      }
+
+      .icon {
+        display: block;
+        margin-bottom: 8px;
+        font-size: 1.3rem;
+      }
+
+      .highlight {
+        background: linear-gradient(135deg, #fff3e8 0%, #ffe2c8 100%);
+        border-radius: 18px;
+        color: #2b3440;
+        border: 1px solid #ffd6b8;
+      }
+
+      .benefits {
+        margin-top: 18px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+      }
+
+      .pill {
+        padding: 8px 14px;
+        border-radius: 999px;
+        background: #ffffffc4;
+        border: 1px solid #ffd8bb;
+        font-weight: 600;
+      }
+
+      footer {
+        margin-top: 20px;
+        background: #111827;
+        color: #d1d5db;
+        text-align: center;
+        padding: 24px 16px;
+      }
+
+      @keyframes slide-up {
+        from {
+          opacity: 0;
+          transform: translateY(12px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes rise-in {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (max-width: 860px) {
+        .services {
+          grid-template-columns: repeat(2, minmax(140px, 1fr));
+        }
+
+        header {
+          margin: 16px;
+          padding: 56px 18px;
+        }
+      }
+
+      @media (max-width: 520px) {
+        .services {
+          grid-template-columns: 1fr;
+        }
+
+        section {
+          padding: 56px 16px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <div class="header-content">
+        <h1>Garage ProTech</h1>
+        <p class="subtitle">
+          Réparation automobile fiable et rapide, avec un service clair, humain
+          et sans surprise.
+        </p>
+        <a href="#contact" class="btn">Prendre rendez-vous</a>
+      </div>
+    </header>
+
+    <section>
+      <h2>Nos services</h2>
+      <p class="intro">
+        Des prestations essentielles pour garder votre voiture sûre et
+        performante au quotidien.
+      </p>
+      <div class="services">
+        <div class="card"><span class="icon">🛑</span>Freins</div>
+        <div class="card"><span class="icon">🛞</span>Pneus</div>
+        <div class="card"><span class="icon">🧰</span>Diagnostic</div>
+        <div class="card"><span class="icon">🔧</span>Entretien</div>
+      </div>
+    </section>
+
+    <section class="highlight">
+      <h2>Pourquoi nous choisir</h2>
+      <div class="benefits">
+        <span class="pill">Service rapide</span>
+        <span class="pill">Prix honnêtes</span>
+        <span class="pill">Techniciens qualifiés</span>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>📍 Montréal</p>
+      <p>📞 514-000-0000</p>
+    </section>
+
+    <footer>
+      <p>© Garage ProTech</p>
+    </footer>
+  </body>
+</html>
